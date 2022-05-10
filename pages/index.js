@@ -28,7 +28,7 @@ function HomePage(props) {
 //   };
 // }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // fetch data from an api
   const client = await MongoClient.connect(
     "mongodb+srv://rlawnsqja805:mzGU0xMM5ubotsQr@cluster0.petdo.mongodb.net/meetups?retryWrites=true&w=majority"
@@ -49,7 +49,6 @@ export async function getStaticProps() {
         id: meetup._id.toString(),
       })),
     },
-    revalidate: 1,
   };
 }
 
